@@ -1,11 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
+import { Linking, StyleSheet, Text, View, Pressable } from "react-native";
 
 export default function App() {
+  var initialCount = 0;
+  var [count, setCount] = useState(initialCount);
+  const onClickHandler = () => {
+    setCount(count + 1);
+  };
+  const onClickReset = () => {
+    setCount(0);
+  };
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.text}>Programming with Eros</Text>
+      <Text style={styles.text}>{count}</Text>
+      <Pressable style={styles.button} onPress={onClickHandler}>
+        <Text style={styles.text}> Click Counter</Text>
+      </Pressable>
+      <Pressable style={styles.button} onPress={onClickReset}>
+        <Text style={styles.text}> Reset Counter</Text>
+      </Pressable>
     </View>
   );
 }
@@ -13,8 +28,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#000fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    color: "#fff",
+    fontSize: 20,
+    margin: 10,
+  },
+  button: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    width: 250,
+    backgroundColor: "black",
+    margin: 10,
   },
 });
