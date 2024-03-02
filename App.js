@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#000fff",
     alignItems: "center",
     justifyContent: "center",
+    borderWidth: 10,
+    borderColor: "#000000",
+    borderRadius: 10,
+    margin: 20,
   },
   text: {
     color: "#fff",
